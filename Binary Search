@@ -1,0 +1,55 @@
+#include<stdio.h>
+void accept(int a[],int n)
+{
+        int i;
+        printf("enter n numbers:");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d",&a[i]);
+        }
+}
+
+void display(int a[],int n)
+{
+        int i;
+        printf("elements in an array:");
+        for(i=0;i<n;i++)
+        {
+                printf("%d\t",a[i]);
+        }
+}
+
+int bsearch(int a[],int n,int num)
+{
+        int mid,top,bottom,i;
+        printf("\n enter number to search:");
+        scanf("%d",&num);
+        top=0;
+        bottom=n-1;
+        while(top<=bottom)
+        {
+                mid=(top+bottom)/2;
+                if(a[mid]==num)
+                return mid;
+                if(num>a[mid])
+                top=mid+1;
+                else
+                bottom=mid-1;
+        }
+                return -1;
+}
+
+void main()
+{
+        int a[100],p,n,num,i;
+        printf("\n enter limit:");
+        scanf("%d",&n);
+        accept(a,n);
+        display(a,n);
+        p=bsearch(a,n,num);
+        if(p==-1)
+        printf("number not found:");
+        else
+        printf("number found at position=%d",p);
+}
+
