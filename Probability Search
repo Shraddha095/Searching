@@ -1,0 +1,53 @@
+#include<stdio.h>
+void accept(int a[],int n)
+{
+        int i;
+        printf("enter n numbers:");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d",&a[i]);
+        }
+}
+void display(int a[],int n)
+{
+        int i;
+        printf("elements in an array:");
+        for(i=0;i<n;i++)
+        {
+                printf("%d\t",a[i]);
+        }
+}
+int probability(int a[],int n)
+{
+        int i,t,key;
+        printf("\n enter a number:");
+        scanf("%d",&key);
+        for(i=0;i<n;i++)
+        {
+                if(a[i]==key)
+                {
+                        t=a[i];
+                        a[i]=a[i-1];
+                        a[i-1]=t;
+
+                return i;
+                }
+        }
+                return -1;
+}
+int main()
+{
+        int a[100],i,n,p;
+        printf("enter limit:");
+        scanf("%d",&n);
+
+        accept(a,n);
+        display(a,n);
+        p=probability(a,n);
+
+        if(p==-1)
+        printf("number not found");
+        else
+        printf("number found at position=%d",p);
+}
+
